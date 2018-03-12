@@ -1,0 +1,55 @@
+<div class="auth-main-container" *ngIf="!isSubmitted">
+  <mat-card class="mat-card-container">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Please Sign Up to create an account</h2>
+
+        <div class="alert alert-danger" *ngIf="submitError">{{message}}</div>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="signUpForm" (ngSubmit)="signUp()" novalidate>
+        <mat-form-field>
+          <input matInput formControlName="username" placeholder="*Enter your username (at least 3 characters)">
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="(signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched) && signUpForm.controls['username'].invalid">Username must be at least 3 characters long.</div>
+
+        <mat-form-field>
+          <input type="email" matInput formControlName="email" placeholder="*Enter your email address (example@mail.com)">
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="(signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched) && signUpForm.controls['email'].invalid">Enter correct email address.</div>
+
+        <mat-form-field>
+          <input type="password" matInput formControlName="password" placeholder="*Enter your password (at least 6 characters)">
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="(signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched) && signUpForm.controls['password'].invalid">Password must be at least 6 characters long.</div>
+
+        <mat-form-field>
+          <input type="password" matInput formControlName="confirmPassword" placeholder="*Confirm your password">
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="(signUpForm.controls['confirmPassword'].dirty || signUpForm.controls['confirmPassword'].touched) && signUpForm.controls['confirmPassword'].invalid">Confirm your password correctly.</div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="card-actions-container">
+        <div class="reset-button-container">
+          <button mat-raised-button color="primary" (click)="resetForm()">Reset</button>
+        </div>
+
+        <div class="auth-action-container">
+          <button mat-raised-button color="primary" [disabled]="signUpForm.invalid" (click)="signUp()">Sign up</button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="auth-footer-container">
+    <p>Already have an account? <a (click)="openSignIn()">Sign In Now.</a></p>
+  </div>
+</div>
+
+<div class="signed-up-container" *ngIf="isSubmitted">
+  <div class="alert alert-success" *ngIf="submitSuccess">{{message}}</div>
+</div>

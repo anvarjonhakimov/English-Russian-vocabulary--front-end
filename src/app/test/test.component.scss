@@ -1,0 +1,86 @@
+.test-page-container {
+  > .test-description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    > .test-description-text-container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      > h2 {
+        margin-bottom: 0;
+      }
+    }
+
+    > .test-description-action-buttons-container {
+      display: flex;
+
+      > .start-test-button-container {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  > .test-container {
+    display: flex;
+    flex-direction: column;
+
+    > .test-title-container {
+      display: flex;
+      justify-content: center;
+
+      > .test-title {
+        margin-bottom: 0;
+      }
+    }
+
+    > .test-word-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > .translation-buttons-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 300px;
+
+        > .translation-button:nth-child(-n+3) {
+          margin-bottom: 10px;
+        }
+      }
+
+      > .action-buttons-container {
+        display: flex;
+        align-self: flex-end;
+        margin-top: 50px;
+        margin-right: 100px;
+
+        > .cancel-button-container {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  > .result-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    > .result-title-container > .result-title {
+      margin-bottom: 0;
+    }
+
+    > .result-action-buttons-container {
+      display: flex;
+
+      > .result-navigate-test-button-container {
+        margin-right: 15px;
+      }
+    }
+  }
+}

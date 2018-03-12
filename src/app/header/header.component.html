@@ -1,0 +1,27 @@
+<div class="header-container">
+  <div class="title-container">
+    <h1 class="title">
+      <a class="title-text" (click)="openHomePage()">English-Russian vocabulary</a>
+    </h1>
+  </div>
+
+  <div class="user-info-container" *ngIf="isLoggedIn">
+    <div class="username-container">
+      <p class="username">Welcome {{user?.username}}</p>
+    </div>
+  </div>
+
+  <div class="sign-action-buttons-container" *ngIf="!isLoggedIn">
+    <div class="sign-in-button-container">
+      <button mat-raised-button color="primary" (click)="openSignIn()">Sign In</button>
+    </div>
+
+    <div class="sign-up-button-container">
+      <button mat-raised-button color="primary" (click)="openSignUp()">Sign Up</button>
+    </div>
+  </div>
+
+  <div class="sign-out-button-container" *ngIf="isLoggedIn">
+    <button mat-raised-button color="primary" (click)="signOut()">Sign Out</button>
+  </div>
+</div>

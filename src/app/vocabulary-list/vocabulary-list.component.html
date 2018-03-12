@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="button-container">
+    <div class="test-button-container">
+      <button mat-raised-button color="primary" (click)="openTest()">Test</button>
+    </div>
+
+    <div class="add-button-container">
+      <button mat-raised-button color="primary" (click)="openAddDialog()">Add</button>
+    </div>
+  </div>
+
+  <div class="words-list-wrapper">
+    <div #wordsListContainer class="words-list-container">
+      <div class="titles-container">
+        <div class="word-number-title-container">
+          <span>№</span>
+        </div>
+        <div class="word-english-title-container">
+          <span>English</span>
+        </div>
+        <div class="word-russian-title-container">
+          <span>Russian</span>
+        </div>
+        <div class="action-buttons-title-container">
+          <span>Actions</span>
+        </div>
+      </div>
+
+      <div class="words-list" *ngFor="let word of wordsList; index as i">
+        <div class="word-number-container">
+          <span class="word-number">{{i + 1}}.</span>
+        </div>
+
+        <div class="word-english-container">
+          <div class="word-original">{{word.englishWord}}</div>
+        </div>
+
+        <div class="word-russian-container">
+          <div class="word-translation">{{word.translation}}</div>
+        </div>
+
+        <div class="edit-button-container">
+          <button mat-raised-button color="primary" (click)="openEditDialog(i)">Edit</button>
+          <button mat-raised-button color="primary" (click)="openDeleteDialog(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

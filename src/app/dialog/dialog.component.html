@@ -1,0 +1,72 @@
+<div class="add-dialog-container" *ngIf="data.type === 'add'">
+  <h1 mat-dialog-title>Add word with translation</h1>
+
+  <mat-dialog-content>
+    <div class="edit-fields-container">
+      <div class="edit-fields">
+        <form [formGroup]="dialogForm" (ngSubmit)="addWord()" novalidate>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="englishWord" placeholder="*English word">
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="(dialogForm.controls['englishWord'].dirty || dialogForm.controls['englishWord'].touched) && dialogForm.controls['englishWord'].invalid">Word must be at least 1 character long.</div>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="translation" placeholder="*Translation">
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="(dialogForm.controls['translation'].dirty || dialogForm.controls['translation'].touched) && dialogForm.controls['translation'].invalid">Word must be at least 1 character long.</div>
+        </form>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <div class="action-buttons-container">
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="addWord()">Save</button>
+    </div>
+  </mat-dialog-actions>
+</div>
+
+<div class="edit-dialog-container" *ngIf="data.type === 'edit'">
+  <h1 mat-dialog-title>Edit word</h1>
+
+  <mat-dialog-content>
+    <div class="edit-fields-container">
+      <div class="edit-fields">
+        <form [formGroup]="dialogForm" (ngSubmit)="editWord()" novalidate>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="englishWord" placeholder="*English word">
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="(dialogForm.controls['englishWord'].dirty || dialogForm.controls['englishWord'].touched) && dialogForm.controls['englishWord'].invalid">Word must be at least 1 character long.</div>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="translation" placeholder="*Translation">
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="(dialogForm.controls['translation'].dirty || dialogForm.controls['translation'].touched) && dialogForm.controls['translation'].invalid">Word must be at least 1 character long.</div>
+        </form>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <div class="action-buttons-container">
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="editWord()">Save</button>
+    </div>
+  </mat-dialog-actions>
+</div>
+
+<div class="delete-dialog-container" *ngIf="data.type === 'delete'">
+  <h1 mat-dialog-title>Do you want to delete this word?</h1>
+
+  <mat-dialog-content>
+    <p>{{data.englishWord}}: {{data.translation}}</p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <div class="action-buttons-container">
+      <button mat-button [mat-dialog-close]="false">No</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="deleteWord()">Yes</button>
+    </div>
+  </mat-dialog-actions>
+</div>

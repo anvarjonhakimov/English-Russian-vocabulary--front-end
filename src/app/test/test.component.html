@@ -1,0 +1,65 @@
+<div class="test-page-container">
+  <div class="test-description-container" *ngIf="beforeStartTest">
+    <div class="test-description-text-container">
+      <h2>Test</h2>
+
+      <h3>Here you have to choose right translations to 20 english words.</h3>
+    </div>
+
+    <div class="test-description-action-buttons-container">
+      <div class="start-test-button-container">
+        <button mat-raised-button color="primary" (click)="startTest()">Start test</button>
+      </div>
+
+      <div class="navigate-home-button-container">
+        <button mat-raised-button color="primary" (click)="openHomePage()">Go back</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-container" *ngIf="isTestStarted">
+    <div class="test-title-container">
+      <h2 class="test-title">Choose the right translation of the given word.</h2>
+    </div>
+
+    <div class="test-word-container">
+      <div class="english-word-container">
+        <h3 class="english-word">{{wordNumber}}. {{englishWord}}</h3>
+      </div>
+
+      <div #optionButtons class="translation-buttons-container">
+        <button class="translation-button" mat-raised-button *ngFor="let option of options; index as i" (click)="chooseAnswer(option, i)">{{option}}</button>
+      </div>
+
+      <div class="action-buttons-container">
+        <div class="cancel-button-container">
+          <button mat-raised-button color="primary" (click)="openHomePage()">Cancel</button>
+        </div>
+
+        <div class="next-button-container">
+          <button mat-raised-button color="primary" (click)="nextWord()" [disabled]="isDisabled">{{wordNumber > 19 ? 'Finish' : 'Next'}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-container" *ngIf="isFinished">
+    <div class="result-title-container">
+      <h2 class="result-title">Congratulations! You finished the test!</h2>
+    </div>
+
+    <div class="result-score-container">
+      <h3 class="result-score">You answered to {{testScore}} questions!</h3>
+    </div>
+
+    <div class="result-action-buttons-container">
+      <div class="result-navigate-test-button-container">
+        <button mat-raised-button color="primary" (click)="openTestPage()">Pass test again</button>
+      </div>
+
+      <div class="result-navigate-home-button-container">
+        <button mat-raised-button color="primary" (click)="openHomePage()">Home</button>
+      </div>
+    </div>
+  </div>
+</div>

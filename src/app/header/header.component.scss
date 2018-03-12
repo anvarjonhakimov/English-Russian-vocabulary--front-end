@@ -1,0 +1,39 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .title-container {
+    flex: 1;
+
+    > .title {
+      margin-left: 10px;
+
+      > .title-text {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .user-info-container {
+    margin-right: 20px;
+
+    .username {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .sign-action-buttons-container {
+    display: flex;
+
+    .sign-in-button-container {
+      margin-right: 15px;
+    }
+  }
+
+  .sign-action-buttons-container, .sign-out-button-container {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,45 @@
+<div class="auth-main-container">
+  <mat-card class="mat-card-container">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Please Sign In to enter your account</h2>
+
+        <div class="alert alert-danger" *ngIf="submitError">{{message}}</div>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="signInForm" (ngSubmit)="signIn()" novalidate>
+        <mat-form-field>
+          <input type="email" matInput formControlName="email" placeholder="*Enter your email address (example@mail.com)">
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="(signInForm.controls['email'].dirty || signInForm.controls['email'].touched) && signInForm.controls['email'].invalid">Enter correct email address.</div>
+
+        <mat-form-field>
+          <input type="password" matInput formControlName="password" placeholder="*Enter your password (at least 6 characters)">
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="(signInForm.controls['password'].dirty || signInForm.controls['password'].touched) && signInForm.controls['password'].invalid">Password must be at least 6 characters long.</div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="card-actions-container">
+        <div class="forgot-password-container">
+          <a class="forgot-password" (click)="openForgotPassword()">Forgot password</a>
+        </div>
+
+        <div class="reset-button-container">
+          <button mat-raised-button color="primary" (click)="resetForm()">Reset</button>
+        </div>
+
+        <div class="auth-action-container">
+          <button mat-raised-button color="primary" [disabled]="signInForm.invalid" (click)="signIn()">Sign in</button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="auth-footer-container">
+    <p>Don't have an account yet? <a (click)="openSignUp()">Sign Up Now.</a></p>
+  </div>
+</div>

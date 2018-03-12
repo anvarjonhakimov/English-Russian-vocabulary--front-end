@@ -1,0 +1,24 @@
+.card-actions-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > .forgot-password-container {
+    display: flex;
+    justify-content: center;
+    flex-basis: 150px;
+
+    > .forgot-password {
+      color: #1e88e5;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  > .reset-button-container {
+    margin-left: 80px;
+  }
+}

@@ -1,0 +1,99 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .test-button-container, .add-button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .words-list-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .words-list-container {
+      width: 50%;
+      padding: 15px;
+      max-height: 430px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: rgba(63,81,181,0.8);
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+      }
+
+      &::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(63,81,181,0.4);
+      }
+
+      .word-number-title-container,
+      .word-english-title-container,
+      .word-russian-title-container,
+      .action-buttons-title-container,
+      .word-number-container,
+      .word-english-container,
+      .word-russian-container,
+      .edit-button-container {
+        display: flex;
+        flex: 1;
+        margin: 5px;
+      }
+
+      .titles-container {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #000000;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+
+        > div:nth-child(-n+3) {
+          max-width: 150px;
+        }
+
+        > div:nth-child(4) {
+          max-width: 180px;
+        }
+
+        .action-buttons-title-container {
+          justify-content: center;
+        }
+      }
+
+      .words-list {
+        display: flex;
+        align-items: center;
+
+        .word-number-container, .word-english-container, .word-russian-container {
+          max-width: 148px;
+          overflow: hidden;
+        }
+
+        .edit-button-container > button:first-child {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

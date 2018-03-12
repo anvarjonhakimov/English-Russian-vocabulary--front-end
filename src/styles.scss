@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/**
+  Styles for authentication forms
+ */
+.auth-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+
+  .mat-card-container {
+    width: 400px;
+
+    mat-card-header > mat-card-title > h2 {
+      margin: 0;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    mat-card-actions {
+      margin-right: 0;
+      margin-bottom: 0 !important;
+
+      > .card-actions-container > .auth-action-container > button[disabled] {
+        cursor: not-allowed;
+      }
+
+      .reset-button-container {
+        flex-basis: 100px;
+      }
+    }
+  }
+
+  > .auth-footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+
+    a {
+      color: #1e88e5;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/**
+  Styles for alert container
+ */
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}

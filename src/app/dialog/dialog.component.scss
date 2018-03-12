@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+.edit-fields-container {
+  display: flex;
+  flex-direction: column;
+
+  .edit-fields {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.action-buttons-container {
+  margin-top: 25px;
+}
